@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Bug Tracker</h1>
+    <p class="lead"></p>
+    <p><a href="@Url.Action("Index", "Projects")" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Projects</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Projects")">Projects &raquo;</a></p>
+    </div>
+
+    @if (User.IsInRole("Admin") || User.IsInRole("ProjectManager"))
+    {
+    <div class="col-md-4">
+        <h2>User Management</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="@Url.Action("ListRoles", "Admin")">Manage Users &raquo;</a></p>
+    </div>
+    }
+
+    <div class="col-md-4">
+        <h2>Tickets</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Tickets")">Tickets &raquo;</a></p>
+    </div>
+</div>

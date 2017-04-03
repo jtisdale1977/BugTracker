@@ -1,0 +1,92 @@
+﻿@using BugTracker.Models
+@model LoginViewModel
+
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <meta name="description" content="Violate Responsive Admin Template">
+    <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+    <title>Bug Bomber</title>
+
+    <!-- CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/form.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/generics.css" rel="stylesheet">
+</head>
+<body id="skin-blur-blue">
+    <section id="login">
+        <header>
+            <h1>Welcome Back!</h1>
+            <p> </p>
+        </header>
+
+        <div class="clearfix"></div>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            <!-- Login -->
+            <div class="tile" id="LG">
+                <h2 class="tile-title">Login</h2>
+                <div class="tile-config dropdown">
+                    <a data-toggle="dropdown" href="" class="tooltips tile-menu" title="" data-original-title="Options"></a>
+                    <ul class="dropdown-menu dropdown-menu-alt animated lightSpeedIn" id="flip">
+                        <li><a href="@Url.Action("IndexLand", "Home")">Back To Landing Page</a></li>
+                    </ul>
+                </div>
+                <form role="form" class="p-15">
+                    <div class="form-group m-b-15">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Username or Email Address", id = "TB" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group m-b-15">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", id = "TB" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @*<div class="checkbox m-b-20">
+                            <label align="center">
+                                <input type="checkbox">
+                                Remember Me
+                            </label>
+                        </div>*@
+                    </div>
+
+                    <input type="submit" value="Sign in" class="btn btn-block btn-alt"  id="TB1" />
+                    <button class="btn btn-block btn-alt" id="TB">@Html.ActionLink("Don't have an Account?", "Register")</button>
+                    <button class="btn btn-block btn-alt" id="TB">@Html.ActionLink("Forgot your password?", "ForgotPassword")</button>
+                </form>
+            </div>
+        }
+    </section>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" align="center">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+    <!-- Javascript Libraries -->
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script> <!-- jQuery Library -->
+    <!-- Bootstrap -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!--  Form Related -->
+    <script src="~/js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
+    <!-- All JS functions -->
+    <script src="~/js/functions.js"></script>
+    <script src="~/js/jsLand/jquery-1.9.1.min.js"></script>
+    <script src="~/js/jsLand/owl.carousel.js"></script>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

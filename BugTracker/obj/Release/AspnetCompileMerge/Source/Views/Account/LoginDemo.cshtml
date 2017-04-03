@@ -1,0 +1,70 @@
+﻿
+
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <meta name="description" content="Violate Responsive Admin Template">
+    <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+    <title>Bug Tracker</title>
+
+    <!-- CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/form.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/generics.css" rel="stylesheet">
+</head>
+<body id="skin-blur-blue">
+    <div class="main">
+        <h1 align="center">WELCOME TO THE BUG BOMBER</h1>
+        <div class="main-agileinfo">
+            <div class="row">
+                <div class="col-sm-6 col-md-4"></div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail tile">
+                        <img src="~/img/gallery/demo.jpg" alt="">
+                        <div class="p-15">
+                            <h4 align="center">Take The Tour</h4>
+                            <p align="center">Feel free to pick a role from below and enjoy the demonstration...</p>
+                            <div class="btn-group m-b-5">
+                                <button type="button" class="btn btn-lg btn-alt">Demo Role</button>
+                                <button type="button" class="btn btn-lg btn-alt dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-alt animated lightSpeedIn" id="LD">
+                                    <li>@Html.ActionLink("Administration", "DemoLogin", "Account", new { demoRole = "Admin" }, null)</li>
+                                    <li>@Html.ActionLink("Project Manager", "DemoLogin", "Account", new { demoRole = "Project Manager" }, null)</li>
+                                    <li>@Html.ActionLink("Developer", "DemoLogin", "Account", new { demoRole = "Developer" }, null)</li>
+                                    <li>@Html.ActionLink("Submitter", "DemoLogin", "Account", new { demoRole = "Submitter" }, null)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4"></div>
+            </div>
+        </div>
+    </div>
+
+
+            <!-- Javascript Libraries -->
+            <!-- jQuery -->
+            <script src="~/js/jquery.min.js"></script> <!-- jQuery Library -->
+            <!-- Bootstrap -->
+            <script src="~/js/bootstrap.min.js"></script>
+
+            <!--  Form Related -->
+            <script src="~/js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
+            <!-- All JS functions -->
+            <script src="~/js/functions.js"></script>
+            <script src="~/js/jsLand/jquery-1.9.1.min.js"></script>
+            <script src="~/js/jsLand/owl.carousel.js"></script>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+</body>
+</html>
